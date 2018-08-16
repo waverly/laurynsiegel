@@ -1,0 +1,49 @@
+{
+	"name": "ROC-homepage",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "npm-run-all --parallel webpack serve",
+		"webpack": "webpack",
+		"serve": "serve dist/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/waverly/ROC-homepage.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/waverly/ROC-homepage/issues"
+	},
+	"homepage": "https://github.com/waverly/ROC-homepage#readme",
+	"devDependencies": {
+		"extract-text-webpack-plugin": "^3.0.2",
+		"node-sass": "^4.7.2",
+		"npm-run-all": "^4.1.2",
+		"sass-loader": "^6.0.6",
+		"serve": "^6.5.0",
+		"webpack": "^3.11.0"
+	},
+	"dependencies": {
+		"css-loader": "^0.28.9",
+		"dat.gui": "^0.7.2",
+		"font-awesome": "^4.7.0",
+		"html-webpack-plugin": "^2.30.1",
+		"jquery": "^3.3.1",
+		"jquery-appear-poetic": "^0.3.9",
+		"jquery-is-in-viewport": "^1.0.0",
+		"jquery-touchswipe": "^1.6.18",
+		"lodash": "^4.17.5",
+		"noisejs": "^2.1.0",
+		"prismic-dom": "^2.0.6",
+		"prismic-javascript": "^1.5.0-beta.2",
+		"slick-carousel": "^1.8.1",
+		"style-loader": "^0.20.2",
+		"three": "^0.95.0",
+		"three-orbit-controls": "^82.1.0"
+	}
+}

@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+a,
+p {
+  text-transform: uppercase;
+  font-family: $serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: $letter-spacing;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+  line-height: $line-height-h3;
+}
+
+h4 {
+  font-size: $font-size-h4;
+  line-height: $line-height-h4;
+}
+
+p {
+  font-size: $font-size-h4;
+  line-height: $line-height-h4;
+  letter-spacing: $p-letter-spacing;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+a {
+  font-family: $sans;
+  text-decoration: none;
+}
+
+.sans {
+  font-family: $sans;
+}
+
+.serif {
+  font-family: $serif;
+}
+
+.container {
+  padding: $margin-sides;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 768px),
+  all and (max-width: 830px) and (orientation: landscape) {
+  .container {
+    padding: $mobile-margin-sides;
+    h1 {
+    }
+  }
+  p {
+    text-transform: uppercase;
+    font-family: $serif;
+  }
+
+  h1 {
+    font-size: $mobile-font-size-h1;
+    line-height: $mobile-line-height-h1;
+  }
+
+  h2 {
+    font-size: $mobile-font-size-h2;
+    line-height: $mobile-line-height-h2;
+  }
+
+  h3 {
+    font-size: $mobile-font-size-h3;
+    line-height: $mobile-line-height-h3;
+  }
+
+  h4 {
+    font-size: $mobile-font-size-h4;
+    line-height: $mobile-line-height-h4;
+  }
+
+  p {
+    font-size: $font-size-p;
+    line-height: $line-height-p;
+  }
+}

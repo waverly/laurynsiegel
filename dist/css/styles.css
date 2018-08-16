@@ -1,0 +1,267 @@
+@font-face {
+  font-family: canet;
+  src: url(../assets/Canet.ttf) format("truetype");
+  font-weight: 400; }
+@font-face {
+  font-family: lack;
+  src: url(../assets/Lack-Regular.otf) format("opentype");
+  font-weight: 400; }
+/*....................................................................................*/
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+a,
+p {
+  text-transform: uppercase;
+  font-family: canet, serif; }
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 7px;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em; }
+
+h1 {
+  font-size: 36px;
+  line-height: 40px; }
+
+h2 {
+  font-size: 28px;
+  line-height: 46px; }
+
+h3 {
+  font-size: 22px;
+  line-height: 40px; }
+
+h4 {
+  font-size: 24px;
+  line-height: 30px; }
+
+p {
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 3px;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px; }
+
+a {
+  font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  text-decoration: none; }
+
+.sans {
+  font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+
+.serif {
+  font-family: canet, serif; }
+
+.container {
+  padding: 40px;
+  box-sizing: border-box; }
+
+@media all and (max-width: 768px), all and (max-width: 830px) and (orientation: landscape) {
+  .container {
+    padding: 20px; }
+
+  p {
+    text-transform: uppercase;
+    font-family: canet, serif; }
+
+  h1 {
+    font-size: 32px;
+    line-height: 36px; }
+
+  h2 {
+    font-size: 30px;
+    line-height: 34px; }
+
+  h3 {
+    font-size: 28px;
+    line-height: 32px; }
+
+  h4 {
+    font-size: 28px;
+    line-height: 32px; }
+
+  p {
+    font-size: 20px;
+    line-height: 24px; } }
+@keyframes marquee {
+  0% {
+    left: 0; }
+  100% {
+    left: -100%; } }
+.index {
+  padding-bottom: 100px;
+  /* .......... */ }
+  .index canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0; }
+  .index .text-wrap {
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: difference; }
+    .index .text-wrap #header {
+      margin-bottom: 10px; }
+    .index .text-wrap h1,
+    .index .text-wrap h2,
+    .index .text-wrap h3,
+    .index .text-wrap h4,
+    .index .text-wrap p,
+    .index .text-wrap a {
+      color: white;
+      opacity: 0;
+      transition: opacity 0.5s; }
+  .index .text-wrap.loaded h1,
+  .index .text-wrap.loaded h2,
+  .index .text-wrap.loaded h3,
+  .index .text-wrap.loaded h4,
+  .index .text-wrap.loaded p,
+  .index .text-wrap.loaded a {
+    opacity: 1;
+    transition: opacity 0.5s; }
+  .index img {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: -50%;
+    left: -50%; }
+  .index .marquee {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    width: 100vw;
+    background: white;
+    color: black;
+    -webkit-text-fill-color: white;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    overflow: hidden;
+    white-space: nowrap; }
+    .index .marquee:hover {
+      background: black;
+      color: white;
+      -webkit-text-fill-color: black;
+      /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: white; }
+      .index .marquee:hover .marquee-link-wrap {
+        background-color: black; }
+      .index .marquee:hover .marquee__item {
+        flex-grow: 1;
+        padding: 5px;
+        text-align: center;
+        position: relative; }
+        .index .marquee:hover .marquee__item a {
+          color: white;
+          -webkit-text-fill-color: black;
+          /* Will override color (regardless of order) */
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: white;
+          font-size: 36px; }
+      .index .marquee:hover .marquee__dash {
+        display: block;
+        position: absolute;
+        right: -8px;
+        top: calc(50% - 3px);
+        width: 16px;
+        height: 6px;
+        color: white;
+        background-color: black;
+        border: 1px solid white; }
+    .index .marquee .marquee-inner {
+      display: block;
+      width: 200%;
+      margin: 0;
+      position: absolute;
+      animation: marquee 15s linear infinite; }
+    .index .marquee .marquee-inner:hover {
+      animation-play-state: paused; }
+    .index .marquee .marquee-link-wrap {
+      float: left;
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      background-color: white; }
+    .index .marquee .marquee__item {
+      flex-grow: 1;
+      padding: 5px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      justify-content: center; }
+      .index .marquee .marquee__item a {
+        color: black;
+        -webkit-text-fill-color: white;
+        /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        font-size: 36px; }
+    .index .marquee .marquee__dash {
+      display: block;
+      position: absolute;
+      right: -8px;
+      top: calc(50% - 3px);
+      width: 16px;
+      height: 6px;
+      color: black;
+      background-color: white;
+      border: 1px solid black; }
+    .index .marquee a {
+      font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      color: white;
+      text-decoration: none; }
+      .index .marquee a h1 {
+        display: inline;
+        font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 70px; }
+  .index #read-more {
+    cursor: pointer; }
+  .index .expanded-text {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    height: 0; }
+
+@media all and (max-width: 1200px) {
+  .index .marquee .marquee-inner {
+    width: 300%; } }
+@media all and (max-width: 768px), all and (max-width: 830px) and (orientation: landscape) {
+  .index .text-wrap #header {
+    hyphens: auto; }
+  .index .marquee {
+    height: 75px; }
+    .index .marquee .marquee-inner {
+      width: 500%; }
+    .index .marquee a h1 {
+      font-size: 50px; } }
+
+/*# sourceMappingURL=styles.css.map */

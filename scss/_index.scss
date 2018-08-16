@@ -1,0 +1,223 @@
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.index {
+  padding-bottom: 100px;
+  canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  .text-wrap {
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: difference;
+
+    #header {
+      margin-bottom: $spacing-x1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    a {
+      color: white;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
+  .text-wrap.loaded {
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    a {
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+  }
+  img {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+  }
+  .marquee {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    width: 100vw;
+    background: white;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    overflow: hidden;
+    white-space: nowrap;
+    // display: none;
+
+    &:hover {
+      background: black;
+      color: white;
+      -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: white;
+
+      .marquee-link-wrap {
+        background-color: black;
+      }
+
+      .marquee__item {
+        flex-grow: 1;
+        padding: 5px;
+        text-align: center;
+        position: relative;
+        a {
+          color: white;
+          -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: white;
+          font-size: $font-size-h1;
+        }
+      }
+
+      .marquee__dash {
+        display: block;
+        position: absolute;
+        right: -8px;
+        top: calc(50% - 3px);
+        width: 16px;
+        height: 6px;
+        color: white;
+        background-color: black;
+        border: 1px solid white;
+      }
+    }
+
+    .marquee-inner {
+      display: block;
+      width: 200%;
+      margin: 0;
+      position: absolute;
+      animation: marquee 15s linear infinite;
+    }
+
+    .marquee-inner:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-link-wrap {
+      float: left;
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      background-color: white;
+    }
+
+    .marquee__item {
+      flex-grow: 1;
+      padding: 5px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      // outline: solid 2px red;
+      a {
+        color: black;
+        -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        font-size: $font-size-h1;
+      }
+    }
+
+    .marquee__dash {
+      display: block;
+      position: absolute;
+      right: -8px;
+      top: calc(50% - 3px);
+      width: 16px;
+      height: 6px;
+      color: black;
+      background-color: white;
+      border: 1px solid black;
+    }
+
+    a {
+      font-family: $sans;
+      color: white;
+      text-decoration: none;
+      h1 {
+        display: inline;
+        font-family: $sans;
+        font-size: 70px;
+      }
+    }
+  }
+  /* .......... */
+  #read-more {
+    cursor: pointer;
+  }
+  .expanded-text {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    height: 0;
+  }
+  // .expanded-text.display {
+  //   display: block;
+  // }
+}
+
+@media all and (max-width: 1200px) {
+  .index {
+    .marquee {
+      .marquee-inner {
+        width: 300%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px),
+  all and (max-width: 830px) and (orientation: landscape) {
+  .index {
+    .text-wrap {
+      #header {
+        hyphens: auto;
+      }
+    }
+    .marquee {
+      height: 75px;
+      .marquee-inner {
+        width: 500%;
+      }
+      a {
+        h1 {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}
