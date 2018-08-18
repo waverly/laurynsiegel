@@ -95,12 +95,17 @@ Prismic.api(apiEndpoint)
   .then(
     function(response) {
       // console.log("Documents: ", response.results);
-
+      console.log("number of tims this fx is running");
       results = response.results;
       header = results[0].data.header[0].text;
       let { expandabletext, social } = results[0].data;
 
       expTextHtml = PrismicDOM.RichText.asHtml(expandabletext, linkResolver);
+      console.log(expandabletext);
+      console.log(expTextHtml);
+
+      console.log("hi");
+      // console.log(expTextHtml);
 
       // replace innerHTML in header and expandableText
       document.getElementById("header").innerHTML = header;
@@ -140,8 +145,6 @@ Prismic.api(apiEndpoint)
         marqueeLinkWrap.appendChild(createMarqueeItem(s));
         if (marqueeLinkWrap.childElementCount === social.length) {
           const marqueeParent = document.querySelector(".marquee-inner");
-          console.log("below should be the clone");
-          console.log(makeClone(marqueeLinkWrap));
           marqueeParent.appendChild(makeClone(marqueeLinkWrap));
           marqueeParent.appendChild(makeClone(marqueeLinkWrap));
         }
@@ -534,8 +537,8 @@ window.onload = e => {
       // mesh.scale.set(depth / 22, depth / 22, depth / 22);
       // mesh.position.set(-20, -30, -depth / 3 + 75);
 
-      mesh.scale.set(depth / 28, depth / 28, depth / 28);
-      mesh.position.set(-450, -50, -depth / 5 + 475);
+      mesh.scale.set(depth / 23, depth / 23, depth / 23);
+      mesh.position.set(-600, -50, -depth / 5 + 475);
 
       // mesh.lookAt(1, 2, 1);
 

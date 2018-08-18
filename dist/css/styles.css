@@ -11,10 +11,23 @@
   box-sizing: border-box; }
 
 body {
+  background: black;
   margin: 0 auto;
   min-height: 100vh;
   width: 100vw;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  cursor: auto;
+  cursor: url(../assets/cursor.png) 2 2, pointer; }
+
+::selection {
+  background: white;
+  /* WebKit/Blink Browsers */
+  color: black; }
+
+::-moz-selection {
+  background: white;
+  /* Gekko Browsers */
+  color: black; }
 
 h1,
 h2,
@@ -62,7 +75,12 @@ p {
 
 a {
   font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: url(../assets/cursor.png) 2 2, pointer;
+  display: inline-block; }
+  a:hover {
+    cursor: url(../assets/cursor.png) 2 2, pointer;
+    transform: scale(-1, 1); }
 
 .sans {
   font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
@@ -100,7 +118,10 @@ a {
 
   p {
     font-size: 20px;
-    line-height: 24px; } }
+    line-height: 24px; }
+
+  a:hover {
+    transform: unset; } }
 @keyframes marquee {
   0% {
     left: 0; }
@@ -186,15 +207,8 @@ a {
           -webkit-text-stroke-color: white;
           font-size: 36px; }
       .index .marquee:hover .marquee__dash {
-        display: block;
-        position: absolute;
-        right: -8px;
-        top: calc(50% - 3px);
-        width: 16px;
-        height: 6px;
-        color: white;
         background-color: black;
-        border: 1px solid white; }
+        border: 2px solid white; }
     .index .marquee .marquee-inner {
       display: block;
       width: 200%;
@@ -229,13 +243,13 @@ a {
     .index .marquee .marquee__dash {
       display: block;
       position: absolute;
-      right: -8px;
-      top: calc(50% - 3px);
-      width: 16px;
-      height: 6px;
-      color: black;
+      right: -12px;
+      top: calc(50% - 4px);
+      width: 24px;
+      height: 8px;
+      color: white;
       background-color: white;
-      border: 1px solid black; }
+      border: 2px solid black; }
     .index .marquee a {
       font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
       color: white;
@@ -245,7 +259,9 @@ a {
         font-family: lack, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         font-size: 70px; }
   .index #read-more {
-    cursor: pointer; }
+    display: inline-block; }
+    .index #read-more:hover {
+      transform: scale(-1, 1); }
   .index .expanded-text {
     overflow: hidden;
     transition: height 0.3s ease-out;
@@ -253,14 +269,18 @@ a {
 
 @media all and (max-width: 1200px) {
   .index .marquee .marquee-inner {
-    width: 300%; } }
+    width: 400%; } }
 @media all and (max-width: 768px), all and (max-width: 830px) and (orientation: landscape) {
+  .index #read-more {
+    transform: scale(1, 1) !important; }
+    .index #read-more:hover {
+      transform: scale(1, 1) !important; }
   .index .text-wrap #header {
     hyphens: auto; }
   .index .marquee {
     height: 75px; }
     .index .marquee .marquee-inner {
-      width: 500%; }
+      width: 600%; }
     .index .marquee a h1 {
       font-size: 50px; } }
 
