@@ -94,28 +94,14 @@ Prismic.api(apiEndpoint)
   })
   .then(
     function(response) {
-      // console.log("Documents: ", response.results);
-      console.log("number of tims this fx is running");
       results = response.results;
       header = results[0].data.header[0].text;
       let { expandabletext, social } = results[0].data;
 
       expTextHtml = PrismicDOM.RichText.asHtml(expandabletext, linkResolver);
-      console.log(expandabletext);
-      console.log(expTextHtml);
 
-      console.log("hi");
-      // console.log(expTextHtml);
-
-      // replace innerHTML in header and expandableText
       document.getElementById("header").innerHTML = header;
       document.getElementById("expandedText").innerHTML = expTextHtml;
-
-      // loop through social links and add all to span
-
-      // when span contians the same # of child nodes as lenght of socials, clone span nodes
-
-      // append both to .marquee-inner
 
       const marqueeLinkWrap = document.createElement("div");
       marqueeLinkWrap.classList.add("marquee-link-wrap");
@@ -167,8 +153,6 @@ const collapseSection = element => {
     element.style.height = sectionHeight + "px";
     element.style.transition = elementTransition;
 
-    // on the next frame (as soon as the previous style change has taken effect),
-    // have the element transition to height: 0
     requestAnimationFrame(function() {
       element.style.height = `0px`;
     });
@@ -530,7 +514,8 @@ window.onload = e => {
   //Load dancer
   loader.load(
     // "https://res.cloudinary.com/al-ro/raw/upload/v1531776249/ballerina_1_mu2pmx.stl",
-    "https://res.cloudinary.com/dzlun7snb/raw/upload/v1534374363/TRY_THIS_AUG_12.stl",
+    // "https://res.cloudinary.com/dzlun7snb/raw/upload/v1534374363/TRY_THIS_AUG_12.stl",
+    "./march3.stl",
     function(geometry) {
       var mesh = new THREE.Mesh(geometry, material_d);
 
@@ -552,19 +537,6 @@ window.onload = e => {
       scene.add(mesh);
     }
   );
-
-  //Load base
-  // loader.load(
-  //   "https://res.cloudinary.com/al-ro/raw/upload/v1531777915/base_uluxjn.stl",
-  //   function(geometry) {
-  //     var mesh = new THREE.Mesh(geometry, material_d);
-  //
-  //     mesh.scale.set(depth / 2, depth / 2, depth / 2);
-  //     mesh.position.set(-725, -725, -1050);
-  //
-  //     scene.add(mesh);
-  //   }
-  // );
 
   //Define hexagon shape for flakes
   var geom = new THREE.Geometry();
@@ -626,45 +598,6 @@ window.onload = e => {
   for (i = 0; i < flakes.length; i++) {
     scene.add(flakes[i].geo);
   }
-
-  //-----------GUI-----------//
-  //dat.gui library controls
-
-  // getting error "object, object has no property FALL"
-
-  // var gui = new dat.GUI();
-  //
-  // gui
-  //   .add(this, "fall")
-  //   .min(0)
-  //   .max(10)
-  //   .step(1)
-  //   .listen();
-  //   gui
-  //     .add(this, "swirl")
-  //     .min(0)
-  //     .max(10)
-  //     .step(1)
-  //     .listen();
-  // if (!mobile) {
-  //   gui
-  //     .addColor(this, "colour")
-  //     .listen()
-  //     .onChange(function(value) {
-  //       setColour();
-  //     });
-  // }
-  // gui
-  //   .add(this, "rotate")
-  //   .listen()
-  //   .onChange(function(value) {
-  //     controls.autoRotate = rotate;
-  //   });
-  // gui.close();
-  //
-  // function setColour() {
-  //   material.color.setHex(colour);
-  // }
 
   //USed for flake position
   var A = {
@@ -810,40 +743,11 @@ window.onload = e => {
     }
   }
 
-  //----------DRAW----------//
-  // function draw() {
-  //   if (rotate) {
-  //     controls.update();
-  //   }
-  //   move();
-  //   renderer.render(scene, camera);
-  //   requestAnimationFrame(draw);
-  // }
-  //
-  // requestAnimationFrame(draw);
-
-  // MY CODE
-
-  // var camera = new THREE.PerspectiveCamera(
-  //   75,
-  //   window.innerWidth / window.innerHeight,
-  //   0.1,
-  //   1000
-  // );
-
-  // var geometry = new THREE.BoxGeometry(1, 1, 1);
-  // var material = new THREE.MeshBasicMaterial({ color: 0x00ffdd });
-  // var cube = new THREE.Mesh(geometry, material);
-  // scene.add(cube);
-  //
-
   //
   function animate() {
     move();
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    // cube.rotation.x += 0.01;
-    // cube.rotation.y += 0.01;
   }
   animate();
 };
